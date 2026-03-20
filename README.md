@@ -1,4 +1,4 @@
-# taskisix
+# Hector
 
 A personal task management app with integrated time tracking, built as a Progressive Web App (PWA).
 
