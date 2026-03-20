@@ -43,3 +43,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# all llm coding related
+CLAUDE.md
+*/CLAUDE.md
+AGENTS.md
+*/AGENTS.md
+.claude
+.codex
+.plan
+
+# ide related
+.idea
+.cursor
+.sftp
+.vscode
+.windsurf
