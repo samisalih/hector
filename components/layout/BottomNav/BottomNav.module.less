@@ -1,0 +1,76 @@
+@import '../../../styles/variables.less';
+
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--bg-secondary-gradient);
+  border-top: none;
+  box-shadow: var(--inset-highlight), 0 -1px 0 var(--border);
+  display: flex;
+  align-items: stretch;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: @z-nav;
+}
+
+// ─── Tab Items ────────────────────────────────────────────────────────────────
+
+.tabItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: relative;
+  color: var(--text-subtle);
+  text-decoration: none;
+  font-size: @text-xs;
+  font-weight: @weight-medium;
+  transition: color @transition-fast;
+  padding-bottom: 4px;
+
+  &:hover {
+    color: var(--text-muted);
+  }
+
+  &.active {
+    color: var(--accent);
+  }
+}
+
+// ─── Active Indicator ─────────────────────────────────────────────────────────
+
+.activeIndicator {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--accent-gradient);
+  box-shadow: var(--glow-accent-sm);
+  border-radius: 0 0 @radius-sm @radius-sm;
+}
+
+// ─── Icon & Label ─────────────────────────────────────────────────────────────
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.label {
+  line-height: 1;
+}
+
+// Desktop: BottomNav ausblenden
+@media (min-width: @bp-mobile) {
+  .bottomNav {
+    display: none;
+  }
+}

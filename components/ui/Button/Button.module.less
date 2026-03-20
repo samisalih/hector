@@ -1,0 +1,110 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, opacity 200ms ease, box-shadow 200ms ease;
+  white-space: nowrap;
+  text-decoration: none;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Sizes ────────────────────────────────────────────────────────────────────
+
+.sm {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.md {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.lg {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+// ─── Variants ─────────────────────────────────────────────────────────────────
+
+.primary {
+  background-color: var(--accent);
+  color: #0f0f0f;
+  box-shadow: var(--glow-accent-sm);
+
+  &:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    box-shadow: var(--glow-accent-md);
+  }
+}
+
+.secondary {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm-raised);
+
+  &:hover:not(:disabled) {
+    background-color: var(--surface-hover);
+    box-shadow: var(--shadow-md-raised);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: none;
+
+  &:hover:not(:disabled) {
+    background-color: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm-raised);
+  }
+}
+
+.danger {
+  background-color: var(--danger, #ff4d4d);
+  color: #ffffff;
+
+  &:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--danger, #ff4d4d) 85%, #000 15%);
+  }
+}
+
+// ─── Loading state ─────────────────────────────────────────────────────────
+
+.loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.spinnerWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiddenContent {
+  visibility: hidden;
+}

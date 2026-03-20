@@ -1,0 +1,206 @@
+@import '../../../styles/variables.less';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: @z-modal;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--bg-secondary-gradient);
+  border: 1px solid var(--border);
+  border-radius: @radius-2xl;
+  padding: @space-8 @space-8 @space-6;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: @space-3;
+  box-shadow: var(--shadow-lg-raised), var(--glow-accent-md);
+}
+
+.icon {
+  color: var(--accent);
+  margin-bottom: @space-1;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: @text-lg;
+  font-weight: @weight-regular;
+  color: var(--text);
+  text-align: center;
+}
+
+.taskName {
+  font-size: @text-sm;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: @space-2;
+}
+
+.dateInput {
+  width: 100%;
+  padding: @space-2 @space-3;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: @radius-md;
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  outline: none;
+  transition: border-color @transition-fast;
+  text-align: center;
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 209, 150, 0.14);
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+    cursor: pointer;
+  }
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: @space-2;
+  margin: @space-2 0 @space-4;
+}
+
+.field {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.numInput {
+  width: 64px;
+  padding: @space-2 @space-3;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: @radius-md;
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: @text-xl;
+  font-weight: @weight-semibold;
+  text-align: center;
+  outline: none;
+  transition: border-color @transition-fast;
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 209, 150, 0.14), var(--glow-accent-sm);
+  }
+
+  &::placeholder {
+    color: var(--text-subtle);
+    font-weight: @weight-regular;
+  }
+}
+
+.unit {
+  font-size: @text-sm;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+}
+
+.sep {
+  font-size: @text-xl;
+  color: var(--text-subtle);
+  font-weight: @weight-medium;
+  padding: 0 2px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: @space-2;
+  width: 100%;
+}
+
+.saveBtn {
+  width: 100%;
+  padding: @space-3;
+  background: var(--accent-gradient);
+  color: #0f0f0f;
+  border: none;
+  border-radius: @radius-md;
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  font-weight: @weight-semibold;
+  cursor: pointer;
+  box-shadow: var(--glow-accent-sm);
+  transition: background @transition-fast;
+
+  &:hover {
+    filter: brightness(1.08);
+    box-shadow: var(--glow-accent-md);
+  }
+}
+
+.skipBtn {
+  width: 100%;
+  padding: @space-2;
+  background: transparent;
+  color: var(--text-subtle);
+  border: none;
+  border-radius: @radius-md;
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  cursor: pointer;
+  transition: color @transition-fast;
+
+  &:hover {
+    color: var(--text-muted);
+  }
+}
+
+.deleteBtnDanger {
+  width: 100%;
+  padding: @space-2;
+  background: transparent;
+  color: @color-danger;
+  border: none;
+  border-radius: @radius-md;
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  cursor: pointer;
+  transition: color @transition-fast, background @transition-fast;
+  margin-top: @space-1;
+
+  &:hover {
+    background: rgba(255, 77, 77, 0.08);
+  }
+}
+
+.deleteBtnConfirm {
+  width: 100%;
+  padding: @space-2 @space-3;
+  background: @color-warning;
+  color: #0f0f0f;
+  border: none;
+  border-radius: @radius-md;
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  font-weight: @weight-semibold;
+  cursor: pointer;
+  transition: background @transition-fast;
+  margin-top: @space-1;
+  outline: none;
+
+  &:hover {
+    background: darken(@color-warning, 8%);
+  }
+}

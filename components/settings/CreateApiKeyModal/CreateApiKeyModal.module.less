@@ -1,0 +1,66 @@
+@import '../../../styles/variables.less';
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: @space-4;
+  margin-bottom: @space-5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: @space-1;
+}
+
+.label {
+  font-size: @text-sm;
+  font-weight: @weight-medium;
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+.optional {
+  font-weight: @weight-regular;
+  color: var(--text-subtle);
+}
+
+.dateInput {
+  height: 36px;
+  padding: 0 @space-3;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: @radius-md;
+  color: var(--text);
+  font-size: @text-sm;
+  font-family: var(--font-ui);
+  transition: border-color @transition-fast;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+    cursor: pointer;
+  }
+}
+
+.errorBanner {
+  background: rgba(255, 77, 77, 0.08);
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  border-radius: @radius-md;
+  color: @color-danger;
+  font-size: @text-sm;
+  padding: @space-3 @space-4;
+  margin-bottom: @space-4;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: @space-2;
+}

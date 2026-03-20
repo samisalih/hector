@@ -1,0 +1,184 @@
+@import '../../../styles/variables.less';
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: @space-4;
+  margin-bottom: @space-6;
+
+  @media (max-width: @bp-mobile) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: @text-2xl;
+  font-weight: @weight-regular;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0 0 @space-1;
+}
+
+.subtitle {
+  font-size: @text-sm;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+// ─── Error ────────────────────────────────────────────────────────────────────
+
+.errorBanner {
+  background: rgba(255, 77, 77, 0.08);
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  border-radius: @radius-md;
+  color: @color-danger;
+  font-size: @text-sm;
+  padding: @space-3 @space-4;
+  margin-bottom: @space-4;
+}
+
+// ─── Empty State ──────────────────────────────────────────────────────────────
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: @space-16 @space-8;
+  gap: @space-2;
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--text-subtle);
+  margin-bottom: @space-2;
+}
+
+.emptyText {
+  font-size: @text-base;
+  font-weight: @weight-medium;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.emptySubtext {
+  font-size: @text-sm;
+  color: var(--text-subtle);
+  margin: 0 0 @space-4;
+}
+
+// ─── Key List ─────────────────────────────────────────────────────────────────
+
+.keyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: @space-2;
+}
+
+.keyRow {
+  display: flex;
+  align-items: center;
+  gap: @space-4;
+  padding: @space-4;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: @radius-lg;
+  box-shadow: var(--shadow-sm-raised);
+  transition: border-color @transition-fast, box-shadow @transition-fast;
+
+  &:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md-raised);
+  }
+
+  @media (max-width: @bp-mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.keyInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.keyName {
+  font-size: @text-sm;
+  font-weight: @weight-semibold;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.keyPrefix {
+  font-family: var(--font-mono);
+  font-size: @text-xs;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 1px 6px;
+  border-radius: @radius-sm;
+  border: 1px solid var(--border);
+  display: inline-block;
+  width: fit-content;
+}
+
+.keyMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: @space-1;
+  flex-shrink: 0;
+}
+
+.metaItem {
+  font-size: @text-xs;
+  color: var(--text-subtle);
+}
+
+.metaDot {
+  font-size: @text-xs;
+  color: var(--border-strong);
+}
+
+.expired {
+  color: @color-danger;
+}
+
+.keyActions {
+  display: flex;
+  align-items: center;
+  gap: @space-2;
+  flex-shrink: 0;
+
+  @media (max-width: @bp-mobile) {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+// ─── Confirm Modal ────────────────────────────────────────────────────────────
+
+.confirmText {
+  font-size: @text-sm;
+  color: var(--text-muted);
+  margin: 0 0 @space-5;
+  line-height: 1.6;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: @space-2;
+}

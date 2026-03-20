@@ -1,0 +1,256 @@
+@import '../../../styles/variables.less';
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: @space-3;
+  padding: @space-3;
+  background: var(--surface-gradient);
+  border-radius: @radius-md;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm-raised);
+  transition: background @transition-fast, border-color @transition-fast, box-shadow @transition-fast;
+
+  &:hover {
+    background: var(--card-hover-bg);
+    border-color: var(--card-hover-border);
+    box-shadow: var(--shadow-md-raised);
+
+    .cardActions {
+      opacity: 1;
+    }
+  }
+
+  &.completed {
+    opacity: 0.45;
+  }
+}
+
+// Priority stripe on left
+.priorityStripe {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 0 @radius-sm @radius-sm 0;
+
+  &.low    { background: @priority-low;    box-shadow: var(--glow-low); }
+  &.medium { background: @priority-medium; box-shadow: var(--glow-medium); }
+  &.high   { background: @priority-high;   box-shadow: var(--glow-high); }
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: @radius-sm;
+  border: 2px solid var(--border-strong, rgba(255,255,255,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  transition: all @transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--accent);
+  }
+
+  &.checked {
+    background: var(--accent-gradient);
+    border-color: var(--accent);
+    color: #0f0f0f;
+    box-shadow: var(--glow-accent-sm);
+  }
+}
+
+.checkmark {
+  width: 10px;
+  height: 10px;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: @space-1;
+}
+
+.title {
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  color: var(--text);
+  line-height: 1.4;
+  word-break: break-word;
+
+  &.completed {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+}
+
+.titleInput {
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  color: var(--text);
+  line-height: 1.4;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--accent);
+  outline: none;
+  padding: 0;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: @space-2;
+  flex-wrap: wrap;
+}
+
+.dueBadge {
+  font-size: @text-xs;
+  padding: 1px @space-2;
+  border-radius: @radius-full;
+  font-weight: @weight-medium;
+
+  &.today {
+    background: rgba(245, 166, 35, 0.15);
+    color: @color-warning;
+  }
+
+  &.overdue {
+    background: rgba(255, 77, 77, 0.15);
+    color: @color-danger;
+  }
+
+  &.future {
+    background: var(--surface);
+    color: var(--text-subtle);
+  }
+}
+
+.cardActions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity @transition-fast;
+  align-self: center;
+}
+
+.timeBtn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: @radius-sm;
+  border: none;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+  transition: background @transition-fast, color @transition-fast;
+
+  &:hover {
+    background: rgba(0, 209, 150, 0.12);
+    color: var(--accent);
+  }
+}
+
+.deleteBtn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: @radius-sm;
+  border: none;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+  transition: background @transition-fast, color @transition-fast;
+
+  &:hover {
+    background: rgba(255, 77, 77, 0.12);
+    color: @color-danger;
+  }
+}
+
+.timeSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: @space-2;
+  margin-top: 4px;
+}
+
+.timeBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.timeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: @text-xs;
+  font-weight: @weight-medium;
+  color: var(--accent);
+  background: linear-gradient(135deg, rgba(0, 209, 150, 0.14) 0%, rgba(0, 168, 180, 0.08) 100%);
+  border-radius: @radius-full;
+  padding: 1px @space-2;
+  border: 1px solid rgba(0, 209, 150, 0.12);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  transition: background @transition-fast;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(0, 209, 150, 0.24) 0%, rgba(0, 168, 180, 0.16) 100%);
+    border-color: rgba(0, 209, 150, 0.20);
+  }
+}
+
+.timeTotal {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: @text-xs;
+  font-weight: @weight-medium;
+  color: var(--text-subtle);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// Die gesamte Card ist der Drag-Handle
+.card[draggable='true'] {
+  cursor: grab;
+
+  &:active { cursor: grabbing; }
+}
+
+.subtaskProgress {
+  font-size: @text-xs;
+  color: var(--text-subtle);
+}
+
+.timerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: @radius-full;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(0, 209, 150, 0.60);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   box-shadow: 0 0 6px rgba(0, 209, 150, 0.60); }
+  50%       { opacity: 0.6; transform: scale(0.8); box-shadow: 0 0 3px rgba(0, 209, 150, 0.30); }
+}

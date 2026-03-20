@@ -1,0 +1,105 @@
+@import '../../styles/variables.less';
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-secondary-gradient);
+  border: 1px solid var(--border);
+  border-radius: @radius-2xl;
+  padding: @space-10 @space-8;
+  box-shadow: var(--shadow-lg), var(--inset-highlight);
+  display: flex;
+  flex-direction: column;
+  gap: @space-6;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.wordmark {
+  font-family: var(--font-heading);
+  font-size: @text-2xl;
+  font-weight: @weight-regular;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(0, 209, 150, 0.40);
+}
+
+.heading {
+  font-family: var(--font-ui);
+  font-size: @text-sm;
+  font-weight: @weight-regular;
+  color: var(--text-muted);
+  margin: @space-1 0 0;
+}
+
+// ─── Fields ───────────────────────────────────────────────────────────────────
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: @space-4;
+}
+
+// ─── Error ────────────────────────────────────────────────────────────────────
+
+.errorBanner {
+  background: rgba(255, 77, 77, 0.08);
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  border-radius: @radius-md;
+  color: @color-danger;
+  font-size: @text-sm;
+  padding: @space-3 @space-4;
+  margin: 0;
+}
+
+// ─── Success ──────────────────────────────────────────────────────────────────
+
+.successBanner {
+  background: rgba(0, 209, 150, 0.08);
+  border: 1px solid rgba(0, 209, 150, 0.2);
+  border-radius: @radius-md;
+  color: var(--accent);
+  font-size: @text-sm;
+  padding: @space-3 @space-4;
+  margin: 0;
+  line-height: 1.5;
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: @space-1;
+  font-size: @text-sm;
+  color: var(--text-subtle);
+}
+
+.footerLink {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: @weight-medium;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ─── Forgot password link ─────────────────────────────────────────────────────
+
+.forgotLink {
+  display: block;
+  text-align: right;
+  font-size: @text-xs;
+  color: var(--text-subtle);
+  text-decoration: none;
+  margin-top: -@space-2;
+
+  &:hover {
+    color: var(--text-muted);
+  }
+}

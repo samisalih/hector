@@ -1,0 +1,91 @@
+@import './variables.less';
+
+// ─── CSS Custom Properties ────────────────────────────────────────────────────
+// Alle Farben als CSS-Variablen, abhängig von [data-theme] auf <html>
+// Zugriff in Komponenten: var(--bg), var(--text), etc.
+
+[data-theme='light'] {
+  --bg:              @bg-light;
+  --bg-secondary:    @bg-secondary-light;
+  --surface:         @surface-light;
+  --surface-hover:   rgba(0, 209, 150, 0.07);
+  --border:          @border-light;
+  --border-strong:   @border-strong-light;
+  --text:            @text-light;
+  --text-muted:      @text-muted-light;
+  --text-subtle:     @text-subtle-light;
+  --shadow-sm:       0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:       0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:       0 8px 24px rgba(0, 0, 0, 0.14);
+  --surface-gradient:       linear-gradient(160deg, #f8f8f8 0%, #f5f5f5 100%);
+  --bg-secondary-gradient:  linear-gradient(160deg, #f0f0f0 0%, #eeeeee 100%);
+  --inset-highlight:        inset 0 1px 0 rgba(255,255,255,0.60);
+  --dot-color:              rgba(0, 0, 0, 0.07);
+  --glow-accent-sm:         0 0 8px rgba(0, 209, 150, 0.22);
+  --glow-accent-md:         0 0 16px rgba(0, 209, 150, 0.18);
+  --glow-accent-lg:         0 0 28px rgba(0, 209, 150, 0.14);
+  --glow-low:               2px 0 8px rgba(77, 159, 255, 0.20);
+  --glow-medium:            2px 0 8px rgba(245, 166, 35, 0.20);
+  --glow-high:              2px 0 8px rgba(255, 77, 77, 0.20);
+  --shadow-sm-raised:       0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md-raised:       0 4px 12px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-lg-raised:       0 8px 24px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+  --card-hover-bg:          linear-gradient(160deg, rgba(0, 209, 150, 0.06) 0%, rgba(0, 168, 180, 0.03) 100%);
+  --card-hover-border:      rgba(0, 209, 150, 0.18);
+}
+
+[data-theme='dark'] {
+  --bg:              @bg-dark;
+  --bg-secondary:    @bg-secondary-dark;
+  --surface:         @surface-dark;
+  --surface-hover:   @surface-hover-dark;
+  --card-hover-bg:          linear-gradient(160deg, #242424 0%, #202020 100%);
+  --card-hover-border:      rgba(255, 255, 255, 0.12);
+  --border:          @border-dark;
+  --border-strong:   @border-strong-dark;
+  --text:            @text-dark;
+  --text-muted:      @text-muted-dark;
+  --text-subtle:     @text-subtle-dark;
+  --shadow-sm:       0 1px 3px rgba(0, 0, 0, 0.30);
+  --shadow-md:       0 4px 12px rgba(0, 0, 0, 0.40);
+  --shadow-lg:       0 8px 24px rgba(0, 0, 0, 0.50);
+  --surface-gradient:       linear-gradient(160deg, #1e1e1e 0%, #1a1a1a 100%);
+  --bg-secondary-gradient:  linear-gradient(160deg, #181818 0%, #141414 100%);
+  --inset-highlight:        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --dot-color:              rgba(255, 255, 255, 0.03);
+  --glow-accent-sm:         0 0 8px rgba(0, 209, 150, 0.25);
+  --glow-accent-md:         0 0 20px rgba(0, 209, 150, 0.20);
+  --glow-accent-lg:         0 0 40px rgba(0, 209, 150, 0.15);
+  --glow-low:               2px 0 8px rgba(77, 159, 255, 0.30);
+  --glow-medium:            2px 0 8px rgba(245, 166, 35, 0.30);
+  --glow-high:              2px 0 8px rgba(255, 77, 77, 0.30);
+  --shadow-sm-raised:       0 1px 3px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.06);
+  --shadow-md-raised:       0 4px 12px rgba(0,0,0,0.40), 0 1px 3px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06);
+  --shadow-lg-raised:       0 8px 24px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+// ─── Accent & Semantic (theme-unabhängig) ─────────────────────────────────────
+:root {
+  --accent:          @accent;
+  --accent-hover:    @accent-hover;
+  --accent-dim:      @accent-dim;
+  --accent-gradient: @accent-gradient;
+  --danger:          @color-danger;
+  --warning:         @color-warning;
+  --success:         @color-success;
+  --info:            @color-info;
+  --priority-low:    @priority-low;
+  --priority-medium: @color-warning;
+  --priority-high:   @color-danger;
+  --font-heading:    @font-heading;
+  --font-ui:         @font-ui;
+  --font-mono:       @font-mono;
+  --radius-sm:       @radius-sm;
+  --radius-md:       @radius-md;
+  --radius-lg:       @radius-lg;
+  --radius-xl:       @radius-xl;
+  --transition-fast: @transition-fast;
+  --transition-base: @transition-base;
+  --sidebar-width:   @sidebar-width;
+  --column-width:    @column-width;
+}

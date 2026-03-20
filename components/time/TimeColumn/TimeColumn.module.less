@@ -1,0 +1,50 @@
+@import '../../../styles/variables.less';
+
+.column {
+  flex-shrink: 0;
+  width: @column-width;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - @board-padding * 2);
+  background: var(--bg-secondary-gradient);
+  border-radius: @radius-xl;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-md-raised);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: @space-4 @space-3 @space-3;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: @text-md;
+  font-weight: @weight-regular;
+  color: var(--text);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 @space-3 @space-3;
+  display: flex;
+  flex-direction: column;
+  gap: @space-4;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: @radius-full;
+  }
+}

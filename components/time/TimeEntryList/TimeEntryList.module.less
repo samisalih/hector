@@ -1,0 +1,28 @@
+@import '../../../styles/variables.less';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: @space-2;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: @space-10 0;
+  font-size: @text-sm;
+  color: var(--text-subtle);
+}
+
+.skeleton {
+  height: 64px;
+  border-radius: @radius-xl;
+  background: var(--surface);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.7; }
+}
